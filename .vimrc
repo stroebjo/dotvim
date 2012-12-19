@@ -77,6 +77,11 @@ if has("gui_running")
     set guifont=Consolas\ for\ Powerline\ FixedD:h10:cANSI
 	map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
   endif
+
+  if has("gui_macvim")
+	set guifont=Menlo\ for\ Powerline:h12
+  endif
+
 endif
 
 " Special OS X settings
