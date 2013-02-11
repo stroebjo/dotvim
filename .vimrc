@@ -113,6 +113,15 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+let g:ctrlp_user_command = {
+    \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+	\ },
+    \ 'fallback': 'find %s -type f'
+\ }
+
+
 " set wildignore+=*\\.sass-cache\\*        " Linux/MacOSX
 set wildignore+=*\\.sass-cache\\*  " Windows ('noshellslash')
 
@@ -132,4 +141,5 @@ let g:Powerline_symbols_override = {
 let g:syntastic_mode_map = { 'mode': 'passive',
 	\ 'active_filetypes': [],
     \ 'passive_filetypes': [] }
+	
  
