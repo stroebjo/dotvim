@@ -141,5 +141,13 @@ let g:Powerline_symbols_override = {
 let g:syntastic_mode_map = { 'mode': 'passive',
 	\ 'active_filetypes': [],
     \ 'passive_filetypes': [] }
-	
- 
+
+" Remove trailing whitespaces at the end of lines
+" http://stackoverflow.com/a/1618401/723769
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType scss,css,html,c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces() 
