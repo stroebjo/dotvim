@@ -8,9 +8,6 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-" Start pathogen https://github.com/tpope/vim-pathogen
-call pathogen#infect()
-
 " Set working directory to the current file (may interfere with some plugins?)
 "set autochdir
 autocmd BufEnter * silent! lcd %:p:h
