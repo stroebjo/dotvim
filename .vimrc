@@ -1,3 +1,29 @@
+
+
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'mattn/zencoding-vim'
+Bundle 'myusuf3/numbers.vim'
+
+
+
+" Actiate omniautocomplete for available filetypes
+filetype plugin indent on     " required!
+"set ofu=syntaxcomplete#Complete
+
 set smartindent
 set number
 set guioptions-=T  " Remove toolbar
@@ -8,6 +34,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+
+
+
 " Set working directory to the current file (may interfere with some plugins?)
 "set autochdir
 autocmd BufEnter * silent! lcd %:p:h
@@ -15,9 +44,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " Allow backspace in INSERT mode
 set backspace=indent,eol,start
 
-" Actiate omniautocomplete for available filetypes
-filetype plugin on
-set ofu=syntaxcomplete#Complete
+
 
 " disable FilteType matching in Open-File Dialog
 autocmd FileType * let b:browsefilter = ''
