@@ -29,6 +29,8 @@ set number
 set guioptions-=T  " Remove toolbar
 syntax on " Enable syntax highlighting
 
+set ignorecase                  " searches are case insensitive...
+
 " use .vim direcotry on windows machines
 if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
