@@ -130,6 +130,7 @@ let g:use_zen_complete_tag = 1
 au BufNewFile,BufRead *.phtml set filetype=php
 au BufNewFile,BufRead *.inc set filetype=php
 au BufNewFile,BufRead *.scss set filetype=css
+au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
