@@ -19,6 +19,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'tpope/vim-fugitive'
 
 " Actiate omniautocomplete for available filetypes
 filetype plugin indent on     " required!
