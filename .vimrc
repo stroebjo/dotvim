@@ -25,6 +25,7 @@ Bundle 'tpope/vim-fugitive'
 filetype plugin indent on     " required!
 "set ofu=syntaxcomplete#Complete
 
+set autoindent
 set smartindent
 set number
 set guioptions-=T  " Remove toolbar
