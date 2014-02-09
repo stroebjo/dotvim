@@ -151,6 +151,7 @@ let g:ctrlp_user_command = {
 
 " set wildignore+=*\\.sass-cache\\*        " Linux/MacOSX
 set wildignore+=*\\.sass-cache\\*  " Windows ('noshellslash')
+set wildignore+=*\\node_modules\\*  " Windows ('noshellslash')
 
 " Always show the statusline
 set laststatus=2
