@@ -31,6 +31,11 @@ set number
 set guioptions-=T  " Remove toolbar
 syntax on " Enable syntax highlighting
 
+
+" vim painfully slow when really long lines are matched
+" against syntax highlighting.
+set synmaxcol=1024
+
 set ignorecase                  " searches are case insensitive...
 
 " use .vim direcotry on windows machines
