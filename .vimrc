@@ -15,7 +15,7 @@ Bundle 'kien/ctrlp.vim'
 " Bundle 'scrooloose/syntastic'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'mattn/zencoding-vim'
+Bundle "mattn/emmet-vim"
 Bundle 'myusuf3/numbers.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'shawncplus/phpcomplete.vim'
