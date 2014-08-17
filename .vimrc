@@ -150,7 +150,6 @@ let g:ctrlp_user_command = {
     \ 'fallback': 'find %s -type f'
 \ }
 
-
 " set wildignore+=*\\.sass-cache\\*        " Linux/MacOSX
 set wildignore+=*\\.sass-cache\\*  " Windows ('noshellslash')
 set wildignore+=*\\node_modules\\*  " Windows ('noshellslash')
