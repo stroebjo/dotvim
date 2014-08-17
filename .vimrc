@@ -21,6 +21,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'mileszs/ack.vim'
 
 " Actiate omniautocomplete for available filetypes
 filetype plugin indent on     " required!
