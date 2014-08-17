@@ -20,6 +20,7 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'altercation/vim-colors-solarized.git'
 
 " Actiate omniautocomplete for available filetypes
 filetype plugin indent on     " required!
@@ -102,7 +103,10 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-colorscheme zenburn
+" colorscheme zenburn
+
+set background=dark
+colorscheme solarized
 
 " Special Windows settings
 if has("gui_running")
