@@ -12,7 +12,7 @@ Bundle 'gmarik/vundle'
 
 " My Bundles here:
 Bundle 'kien/ctrlp.vim'
-" Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "mattn/emmet-vim"
@@ -177,9 +177,9 @@ let g:Powerline_symbols_override = {
     \ }
 
 " Only check for syntax errors manually. Expect for Ruby and PHP
-let g:syntastic_mode_map = { 'mode': 'passive',
-	\ 'active_filetypes': [],
-    \ 'passive_filetypes': [] }
+"let g:syntastic_mode_map = { 'mode': 'passive',
+"	\ 'active_filetypes': [],
+"    \ 'passive_filetypes': [] }
 
 " Remove trailing whitespaces at the end of lines
 " http://stackoverflow.com/a/1618401/723769
