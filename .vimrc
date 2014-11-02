@@ -193,6 +193,6 @@ autocmd FileType scss,css,html,c,cpp,java,php,ruby,python autocmd BufWritePre <b
 
 " push files for witch Transmit DockSend is enabled to FTP uppon save
 " http://stackoverflow.com/a/13141657/723769
-augroup AutoUpload
-    autocmd! BufWritePost * :silent! call TransmitFtpSendFile()
-augroup END
+"augroup AutoUpload
+"    autocmd! BufWritePost * :silent! call TransmitFtpSendFile()
+"augroup END
