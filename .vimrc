@@ -182,6 +182,8 @@ let g:Powerline_symbols_override = {
 "	\ 'active_filetypes': [],
 "    \ 'passive_filetypes': [] }
 
+let g:syntastic_scss_checkers = ['scss_lint']
+
 " Remove trailing whitespaces at the end of lines
 " http://stackoverflow.com/a/1618401/723769
 fun! <SID>StripTrailingWhitespaces()
