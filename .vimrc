@@ -26,6 +26,7 @@ Bundle 'gregsexton/MatchTag'
 
 "Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/neocomplete.vim'
+Bundle 'editorconfig/editorconfig-vim'
 " Actiate omniautocomplete for available filetypes
 filetype plugin indent on     " required!
 "set ofu=syntaxcomplete#Complete
