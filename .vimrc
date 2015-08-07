@@ -17,13 +17,15 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "mattn/emmet-vim"
 Bundle 'myusuf3/numbers.vim'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'mileszs/ack.vim'
 Bundle 'gregsexton/MatchTag'
 
+"Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neocomplete.vim'
 " Actiate omniautocomplete for available filetypes
 filetype plugin indent on     " required!
 "set ofu=syntaxcomplete#Complete
@@ -142,7 +144,7 @@ let g:use_zen_complete_tag = 1
 " add custom filetypes
 au BufNewFile,BufRead *.phtml set filetype=php
 au BufNewFile,BufRead *.inc set filetype=php
-au BufNewFile,BufRead *.scss set filetype=css
+"au BufNewFile,BufRead *.scss set filetype=css
 au BufRead,BufNewFile *.twig set filetype=htmljinja
 
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
@@ -199,3 +201,21 @@ autocmd FileType scss,css,html,c,cpp,java,php,ruby,python autocmd BufWritePre <b
 "augroup AutoUpload
 "    autocmd! BufWritePost * :silent! call TransmitFtpSendFile()
 "augroup END
+
+
+let g:neocomplete#enable_at_startup = 1
+
+"let g:neocomplcache_enable_at_startup = 1
+
+" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+""  return neocomplcache#smart_close_popup() . "\<CR>"
+""  " For no inserting <CR> key.
+""  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+"endfunction
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+let g:mustache_abbreviations = 1
