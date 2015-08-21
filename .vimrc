@@ -43,7 +43,7 @@ syntax on " Enable syntax highlighting
 
 " vim painfully slow when really long lines are matched
 " against syntax highlighting.
-set synmaxcol=1024
+set synmaxcol=176
 
 set ignorecase                  " searches are case insensitive...
 
