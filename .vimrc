@@ -191,12 +191,6 @@ let g:Powerline_symbols_override = {
 let g:syntastic_scss_checkers = ['scss_lint']
 
 
-" push files for witch Transmit DockSend is enabled to FTP uppon save
-" http://stackoverflow.com/a/13141657/723769
-"augroup AutoUpload
-"    autocmd! BufWritePost * :silent! call TransmitFtpSendFile()
-"augroup END
-
 
 let g:neocomplete#enable_at_startup = 1
 
