@@ -141,15 +141,26 @@ behave mswin
 
 
 
+" Filetypes -------------------------------------------------------------
 
+" PHP {{{
+augroup filetype_php
+	autocmd!
+	
+	au BufRead,BufNewFile *.phtml set ft=php syntax=php
 
-" add custom filetypes
-au BufNewFile,BufRead *.phtml set filetype=php
-au BufNewFile,BufRead *.inc set filetype=php
-"au BufNewFile,BufRead *.scss set filetype=css
-au BufRead,BufNewFile *.twig set filetype=htmljinja
+augroup END	
+" }}}
 
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+" Ruby {{{
+augroup filetype_ruby
+	autocmd!
+	
+	au BufRead,BufNewFile Rakefile,Capfile,Gemfile,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
+
+augroup END	
+" }}}
+
 
 " CtrlP file finder
 set runtimepath^=~/.vim/bundle/ctrlp.vim
