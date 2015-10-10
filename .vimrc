@@ -141,8 +141,6 @@ behave mswin
 
 
 
-let g:user_zen_expandabbr_key = '<C-e>' 
-let g:use_zen_complete_tag = 1
 
 
 " add custom filetypes
