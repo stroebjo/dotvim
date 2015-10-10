@@ -16,14 +16,11 @@ Bundle 'hail2u/vim-css3-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "mattn/emmet-vim"
 Bundle 'myusuf3/numbers.vim'
-"Bundle 'Valloric/YouCompleteMe'"
-"Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'mileszs/ack.vim'
 Bundle 'gregsexton/MatchTag'
 
-"Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/neocomplete.vim'
 "Bundle 'Shougo/neosnippet'
 "Bundle 'Shougo/neosnippet-snippets'
