@@ -39,30 +39,47 @@ filetype plugin on
 
 " GUI {{{
 
-set wildmenu " visual autocomplete for command menu
-" disable FilteType matching in Open-File Dialog
-autocmd FileType * let b:browsefilter = ''
+	set laststatus=2 " Always show the statusline
+	set wildmenu " visual autocomplete for command menu
+	
+	set number " show line Numbers
+	
+	set guioptions-=T " Remove toolbar
+	set guitablabel=%t\ %M " show only file name and modified bit in tabname
+	
+	set visualbell t_vb= " mute vim
 
-set guitablabel=%t\ %M " show only file name and modified bit in tabname
-set visualbell t_vb= " mute vim
+	" Easy buffer navigation
+	noremap <C-h> <C-w>h
+	noremap <C-j> <C-w>j
+	noremap <C-k> <C-w>k
+	noremap <C-l> <C-w>l
 
-" Resize splits when the window is resized
-au VimResized * :wincmd =
+augroup gneral
+	autocmd!
+	
+	" Set working directory to the current file (may interfere with some plugins?)
+	" set autochdir
+	autocmd BufEnter * silent! lcd %:p:h
 
-" Easy buffer navigation
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
+	" disable FilteType matching in Open-File Dialog
+	autocmd FileType * let b:browsefilter = ''
 
+	" Resize splits when the window is resized
+	au VimResized * :wincmd =
+
+augroup END
 
 " }}}
 
 
 set autoindent
 set smartindent
-set number        " show line Numbers
-set guioptions-=T " Remove toolbar
+
+" Tabwidth is four columns, indention level is one tab
+set tabstop=4 
+set softtabstop=4
+set shiftwidth=4
 
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/bower_components/*,*/node_modules/*
@@ -83,10 +100,7 @@ colorscheme solarized " zenburn
 " }}}
 
 
-" Tabwidth is four columns, indention level is one tab
-set tabstop=4 
-set softtabstop=4
-set shiftwidth=4
+
 
 
 "set hlsearch   " highlight matches, there is no easy way to disable highlighting again
@@ -95,27 +109,29 @@ set ignorecase " search is case insensitive
 
 
 
-augroup gneral
-	autocmd!
 	
-	" Set working directory to the current file (may interfere with some plugins?)
-	" set autochdir
-	autocmd BufEnter * silent! lcd %:p:h
-
-augroup END	
 
 
 " Allow backspace in INSERT mode
 set backspace=indent,eol,start
 
-" unindent with Shift-Tab for command mode
-nmap <S-Tab> <<
-" for insert mode
-imap <S-Tab> <Esc><<i
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
-" Always show the statusline
-set laststatus=2
+" Make <C-c> and <C-v> work like they should...
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+
 
 
 set fileformats=unix,dos
@@ -145,34 +161,26 @@ endif
 " }}}
 
 
-" Special Windows settings
-if has("gui_running")
-  if has("gui_win32")
-    set guifont=Consolas\ for\ Powerline\ FixedD:h10:cANSI
-	map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-  endif
+" Special Windows settings {{{
 
-  if has("gui_macvim")
-	set guifont=Menlo\ for\ Powerline:h12
-  endif
-endif
+	if has('win32') || has('win64')
 
-" use .vim direcotry on windows machines
-if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-endif
+		" use .vim direcotry on windows machines
+		set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 
-" Special OS X settings
-" SHIFT + Arrow Keys for vertical select
-if has("gui_macvim")
-    let macvim_hig_shift_movement = 1
-endif
+		if has("gui_running")
+			map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+		endif
+	endif
 
-" Make <C-c> and <C-v> work like they should...
-source $VIMRUNTIME/mswin.vim
-behave mswin
+" }}}
 
-
+" Special OS X settings {{{
+	" SHIFT + Arrow Keys for vertical select
+	if has("gui_macvim")
+	    let macvim_hig_shift_movement = 1
+	endif
+" }}}
 
 " Filetypes -------------------------------------------------------------
 
@@ -221,6 +229,16 @@ let g:ctrlp_user_command = {
 		\ 'LINE': 'LN',
 		\ }
 
+	if has("gui_running")
+		if has("gui_win32")
+			set guifont=Consolas\ for\ Powerline\ FixedD:h10:cANSI
+		endif
+
+		if has("gui_macvim")
+			set guifont=Menlo\ for\ Powerline:h12
+		endif
+	endif
+
 " }}}
 
 " Syntastic.vim {{{
@@ -240,28 +258,24 @@ let g:ctrlp_user_command = {
 
 " }}}
 
+" Necomplete.vim {{{
+augroup neocomplete_config
 
-let g:neocomplete#enable_at_startup = 1
+	let g:neocomplete#enable_at_startup = 1
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
+	" Recommended key-mappings.
+	" <CR>: close popup and save indent.
+	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function()
+	  return neocomplete#close_popup() . "\<CR>"
+	  " For no inserting <CR> key.
+	  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+	endfunction
 
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+augroup END
+" }}}
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
+" Neosnippet.vim {{{
 
 " Plugin key-mappings.
 "imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -275,6 +289,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "\ "\<Plug>(neosnippet_expand_or_jump)"
 "\: "\<TAB>"
+
+" }}}
 
 " For conceal markers.
 "if has('conceal')
