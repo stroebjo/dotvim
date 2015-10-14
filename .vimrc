@@ -1,7 +1,17 @@
 " vim:fdm=marker
 
+" Documentaion of .vimrc ----------------------------
+"
+" augroup 
+" http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
+"
+"
+
+
 set nocompatible               " be iMproved
 filetype off                   " required!
+
+let mapleader=","
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
