@@ -82,9 +82,27 @@ augroup END
 
 " }}}
 
+" Make <C-c> and <C-v> work like they should...
+source $VIMRUNTIME/mswin.vim
+behave mswin
 
-set autoindent
+set fileformats=unix,dos
+
+" always utf8, see http://stackoverflow.com/a/5795441/723769
+if has("multi_byte")
+	if &termencoding == ""
+		let &termencoding = &encoding
+	endif
+	set encoding=utf-8 nobomb " better default than latin1, utf8 without BOM
+	setglobal fileencoding=utf-8 " change default file encoding when writing new files
+endif
+
+set cursorline " Highlight current line
+
+set autoindent " Copy indent from last line when starting new line
 set smartindent
+
+set lazyredraw " Don't redraw when we don't have to
 
 " Tabwidth is four columns, indention level is one tab
 set tabstop=4 
@@ -95,6 +113,12 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*
 
+"set hlsearch   " highlight matches, there is no easy way to disable highlighting again
+"set incsearch  " search as characters are entered
+set ignorecase " search is case insensitive
+
+" Allow backspace in INSERT mode
+set backspace=indent,eol,start
 
 " Syntax highlighting {{{
 
@@ -108,52 +132,6 @@ set background=dark
 colorscheme solarized " zenburn
 
 " }}}
-
-
-
-
-
-"set hlsearch   " highlight matches, there is no easy way to disable highlighting again
-"set incsearch  " search as characters are entered
-set ignorecase " search is case insensitive
-
-
-
-	
-
-
-" Allow backspace in INSERT mode
-set backspace=indent,eol,start
-
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-
-" Make <C-c> and <C-v> work like they should...
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
-
-
-
-set fileformats=unix,dos
-
-" always utf8, see http://stackoverflow.com/a/5795441/723769
-if has("multi_byte")
-  if &termencoding == ""
-    let &termencoding = &encoding
-  endif
-  set encoding=utf-8 nobomb " better default than latin1, utf8 without BOM
-  setglobal fileencoding=utf-8 " change default file encoding when writing new files
-endif
 
 " Local direcotries {{{
 
@@ -212,6 +190,12 @@ augroup filetype_ruby
 augroup END	
 " }}}
 
+" Handlebars {{{
+augroup filetype_hbs
+	autocmd!
+	"au BufRead,BufNewFile *.hbs,*.handlebars,*.hbs.erb,*.handlebars.erb setl ft=mustache syntax=mustache
+augroup END
+" }}}
 
 " Plugins -------------------------------------------------------------
 
@@ -245,7 +229,7 @@ let g:ctrlp_user_command = {
 		endif
 
 		if has("gui_macvim")
-			set guifont=Menlo\ for\ Powerline:h12
+			set guifont=Menlo\ for\ Powerline:h12    
 		endif
 	endif
 
@@ -277,11 +261,19 @@ augroup neocomplete_config
 	" <CR>: close popup and save indent.
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
-	  return neocomplete#close_popup() . "\<CR>"
+	  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 	  " For no inserting <CR> key.
-	  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+	  "return pumvisible() ? "\<C-y>" : "\<CR>"
 	endfunction
+	" <TAB>: completion.
+	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+	" Enable omni completion.
+	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 " }}}
 
@@ -300,15 +292,11 @@ augroup END
 "\ "\<Plug>(neosnippet_expand_or_jump)"
 "\: "\<TAB>"
 
-" }}}
-
 " For conceal markers.
 "if has('conceal')
 ""  set conceallevel=2 concealcursor=niv
 "endif
 
-
+" }}}
 
 let g:mustache_abbreviations = 1
-
-
