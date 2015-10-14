@@ -44,6 +44,8 @@ Bundle 'plasticboy/vim-markdown'
 
 Bundle 'mbbill/undotree'
 
+Bundle 'junegunn/goyo.vim'
+
 filetype plugin on
 
 
@@ -168,6 +170,29 @@ endif
 	if has("gui_macvim")
 	    let macvim_hig_shift_movement = 1
 	endif
+" }}}
+
+
+" Word Processor Mode {{{
+augroup word_processor_mode
+  autocmd!
+
+  function! WordProcessorMode() " {{{
+    setlocal formatoptions=t1
+    setlocal smartindent
+    setlocal spell spelllang=de_de
+    setlocal noexpandtab
+    setlocal wrap " wrap line
+    setlocal linebreak " wrap on word boundaries
+	setlocal linespace=3 " higher lineheight
+    Goyo 100
+	NumbersToggle
+	NumbersOnOff
+	nnoremap j gj " j, k move accrose wrapped lines
+    nnoremap k gk " j, k move accrose wrapped lines
+  endfunction " }}}
+  com! WP call WordProcessorMode()
+augroup END
 " }}}
 
 " Filetypes -------------------------------------------------------------
