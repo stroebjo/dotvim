@@ -179,7 +179,7 @@ endif
 augroup word_processor_mode
   autocmd!
 
-  function! WordProcessorMode() " {{{
+  function! WordProcessorMode()
     setlocal formatoptions=t1
     setlocal smartindent
     setlocal spell spelllang=de_de
@@ -192,7 +192,7 @@ augroup word_processor_mode
 	NumbersOnOff
 	nnoremap j gj " j, k move accrose wrapped lines
     nnoremap k gk " j, k move accrose wrapped lines
-  endfunction " }}}
+  endfunction
   com! WP call WordProcessorMode()
 augroup END
 " }}}
