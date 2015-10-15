@@ -46,6 +46,8 @@ Bundle 'mbbill/undotree'
 
 Bundle 'junegunn/goyo.vim'
 
+Bundle 'mhinz/vim-startify'
+
 filetype plugin on
 
 
@@ -325,3 +327,50 @@ augroup END
 " }}}
 
 let g:mustache_abbreviations = 1
+
+" vim-startify {{{
+
+    let g:startify_list_order = [
+            \ ['   My most recently', '   used files'],
+            \ 'files',
+            \ ['   These are my sessions:'],
+            \ 'sessions',
+            \ ['   These are my bookmarks:'],
+            \ 'bookmarks',
+            \ ]
+
+    function! s:filter_header(lines) abort
+        let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+        let centered_lines = map(copy(a:lines),
+            \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+        return centered_lines
+    endfunction
+
+    let g:startify_custom_header = s:filter_header([
+\ '                            _o_                                            ',
+\ '                        _,-=(_)=-,_                      ,_o_,             ',
+\ '     .-=-.              ''         ''                     =======            ',
+\ '                                               _____----(_o_)----_____     ',
+\ '                //-n-\\                       /    ''-------------''    \    ',
+\ '        _____---=======---_____              [''                        '']  ',
+\ '    ====____\   /.. ..\   /____====                                        ',
+\ '  //         ---\__O__/---         \\                                      ',
+\ '  \_\                             /_/                                      ',
+\ '                                    _                                      ',
+\ '                                  _|_|_                                    ',
+\ '                                ^/ . ..\^                                  ',
+\ '                            ___[=========]___                              ',
+\ '                 ___-==++""" .  /. . .  \ .  """++==-___                   ',
+\ '           __-+"" __\   .. . .  | ..  . |  . .  .   /__ ""+-__             ',
+\ '          /\__+-""   `-----=====\_  _/=====-----''   ""-+__/\               ',
+\ '        _/_/                      ""=""                      \_\_          ',
+\ '       /_/                                                     \_\         ',
+\ '      //                                                         \\        ',
+\ '     /")                                                         ("\       ',
+\ '     \o\                                                         /o/       ',
+\ '      \_)                                                       (_/        ',
+\ '',
+\ '',
+\ ]) " http://www.chris.com/ascii/index.php?art=television/star%20trek
+
+" }}}
