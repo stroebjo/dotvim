@@ -182,7 +182,7 @@ augroup word_processor_mode
   function! WordProcessorMode()
     setlocal formatoptions=t1
     setlocal smartindent
-    setlocal spell spelllang=de_de
+    setlocal spell spelllang=en,de
     setlocal noexpandtab
     setlocal wrap " wrap line
     setlocal linebreak " wrap on word boundaries
