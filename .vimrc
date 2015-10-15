@@ -330,6 +330,8 @@ let g:mustache_abbreviations = 1
 
 " vim-startify {{{
 
+	let g:startify_bookmarks = [ '~/.vimrc' ]
+
     let g:startify_list_order = [
             \ ['   My most recently', '   used files'],
             \ 'files',
