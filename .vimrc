@@ -23,6 +23,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'hail2u/vim-css3-syntax'
+Bundle 'ap/vim-css-color'
 Bundle 'Lokaltog/vim-powerline'
 Bundle "mattn/emmet-vim"
 Bundle 'myusuf3/numbers.vim'
