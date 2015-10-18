@@ -87,9 +87,14 @@ augroup END
 
 " }}}
 
+
+
 " Make <C-c> and <C-v> work like they should...
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+set whichwrap+=<,>,h,l,[,] " wrap arrow keys around lines. <, > (normal mode), [,] (insert mode)
+
+
 
 set fileformats=unix,dos
 
