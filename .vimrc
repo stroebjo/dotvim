@@ -147,6 +147,8 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/buil
 set hlsearch   " highlight matches, there is no easy way to disable highlighting again
 set incsearch  " search as characters are entered
 set ignorecase " search is case insensitive
+nmap <silent> <leader>. :nohlsearch<CR>
+
 
 " Allow backspace in INSERT mode
 set backspace=indent,eol,start
