@@ -2,7 +2,7 @@
 
 " Documentaion of .vimrc ----------------------------
 "
-" augroup 
+" augroup
 " http://learnvimscriptthehardway.stevelosh.com/chapters/14.html
 "
 "
@@ -56,12 +56,11 @@ filetype plugin on
 
 	set laststatus=2 " Always show the statusline
 	set wildmenu " visual autocomplete for command menu
-	
 	set number " show line Numbers
-	
+
 	set guioptions-=T " Remove toolbar
 	set guitablabel=%t\ %M " show only file name and modified bit in tabname
-	
+
 	set visualbell t_vb= " mute vim
 
 	" Easy buffer navigation
@@ -72,7 +71,7 @@ filetype plugin on
 
 augroup gneral
 	autocmd!
-	
+
 	" Set working directory to the current file (may interfere with some plugins?)
 	" set autochdir
 	autocmd BufEnter * silent! lcd %:p:h
@@ -115,7 +114,7 @@ set smartindent
 set lazyredraw " Don't redraw when we don't have to
 
 " Tabwidth is four columns, indention level is one tab
-set tabstop=4 
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
@@ -132,8 +131,8 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*
 
-"set hlsearch   " highlight matches, there is no easy way to disable highlighting again
-"set incsearch  " search as characters are entered
+set hlsearch   " highlight matches, there is no easy way to disable highlighting again
+set incsearch  " search as characters are entered
 set ignorecase " search is case insensitive
 
 " Allow backspace in INSERT mode
@@ -185,7 +184,7 @@ endif
 " Special OS X settings {{{
 	" SHIFT + Arrow Keys for vertical select
 	if has("gui_macvim")
-	    let macvim_hig_shift_movement = 1
+		let macvim_hig_shift_movement = 1
 	endif
 " }}}
 
@@ -217,19 +216,19 @@ augroup END
 " PHP {{{
 augroup filetype_php
 	autocmd!
-	
+
 	au BufRead,BufNewFile *.phtml set ft=php syntax=php
 
-augroup END	
+augroup END
 " }}}
 
 " Ruby {{{
 augroup filetype_ruby
 	autocmd!
-	
+
 	au BufRead,BufNewFile Rakefile,Capfile,Gemfile,.autotest,.irbrc,*.treetop,*.tt set ft=ruby syntax=ruby
 
-augroup END	
+augroup END
 " }}}
 
 " Handlebars {{{
@@ -260,7 +259,7 @@ let g:ctrlp_user_command = {
 
 " Powerline {{{
 	let g:Powerline_symbols = 'fancy' " requieres a patched font
-	
+
 	let g:Powerline_symbols_override = {
 		\ 'LINE': 'LN',
 		\ }
@@ -271,7 +270,7 @@ let g:ctrlp_user_command = {
 		endif
 
 		if has("gui_macvim")
-			set guifont=Menlo\ for\ Powerline:h12    
+			set guifont=Menlo\ for\ Powerline:h12
 		endif
 	endif
 
@@ -285,10 +284,8 @@ let g:ctrlp_user_command = {
 	"   \ 'passive_filetypes': [] }
 
 	let g:syntastic_scss_checkers = ['scss_lint']
-	
 	let g:syntastic_error_symbol = '✗'
 	let g:syntastic_warning_symbol = '⚠'
-
 	let g:syntastic_style_error_symbol = 'S⚠'
 	let g:syntastic_style_warning_symbol = 'S⚠'
 
@@ -303,10 +300,11 @@ augroup neocomplete_config
 	" <CR>: close popup and save indent.
 	inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function()
-	  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-	  " For no inserting <CR> key.
-	  "return pumvisible() ? "\<C-y>" : "\<CR>"
+		return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+		" For no inserting <CR> key.
+		"return pumvisible() ? "\<C-y>" : "\<CR>"
 	endfunction
+
 	" <TAB>: completion.
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
