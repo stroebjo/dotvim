@@ -20,12 +20,14 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
+
+Plugin 'bling/vim-airline'
+
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'ap/vim-css-color'
-Bundle 'Lokaltog/vim-powerline'
-Bundle "mattn/emmet-vim"
+Bundle 'mattn/emmet-vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'altercation/vim-colors-solarized.git'
@@ -68,6 +70,17 @@ filetype plugin on
 	noremap <C-j> <C-w>j
 	noremap <C-k> <C-w>k
 	noremap <C-l> <C-w>l
+
+	if has("gui_running")
+		if has("gui_win32")
+			set guifont=Consolas\ for\ Powerline\ FixedD:h10:cANSI
+		endif
+
+		if has("gui_macvim")
+			set guifont=Menlo\ for\ Powerline:h12
+		endif
+	endif
+
 
 augroup gneral
 	autocmd!
@@ -257,22 +270,22 @@ let g:ctrlp_user_command = {
 
 " }}}
 
-" Powerline {{{
-	let g:Powerline_symbols = 'fancy' " requieres a patched font
+" Airline {{{
 
-	let g:Powerline_symbols_override = {
-		\ 'LINE': 'LN',
-		\ }
 
-	if has("gui_running")
-		if has("gui_win32")
-			set guifont=Consolas\ for\ Powerline\ FixedD:h10:cANSI
-		endif
-
-		if has("gui_macvim")
-			set guifont=Menlo\ for\ Powerline:h12
-		endif
+	if !exists('g:airline_symbols')
+		let g:airline_symbols = {}
 	endif
+
+	"let g:airline_powerline_fonts = 1
+
+	let g:airline_left_sep = '⮀'
+	let g:airline_left_alt_sep = '⮁'
+	let g:airline_right_sep = '⮂'
+	let g:airline_right_alt_sep = '⮃'
+	let g:airline_symbols.branch = '⭠'
+	let g:airline_symbols.readonly = '⭤'
+	let g:airline_symbols.linenr = '⭡'
 
 " }}}
 
