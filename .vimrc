@@ -51,6 +51,8 @@ Bundle 'junegunn/goyo.vim'
 
 Bundle 'mhinz/vim-startify'
 
+Bundle 'jiangmiao/auto-pairs'
+
 filetype plugin on
 
 
@@ -355,6 +357,13 @@ augroup END
 " }}}
 
 let g:mustache_abbreviations = 1
+
+" auto-pairs {{{
+
+	" look for closing pair only on the same line
+	let g:AutoPairsMultilineClose = 0
+
+" }}}
 
 " vim-startify {{{
 
