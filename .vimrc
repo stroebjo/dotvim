@@ -163,8 +163,10 @@ syntax on " Enable syntax highlighting
 " against syntax highlighting.
 set synmaxcol=176
 
-set background=dark
-colorscheme solarized " zenburn
+if has("gui_running")
+	set background=dark
+	colorscheme solarized " zenburn
+endif
 
 " }}}
 
