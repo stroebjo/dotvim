@@ -291,7 +291,19 @@ let g:ctrlp_user_command = {
 	let g:airline_symbols.readonly = '⭤'
 	let g:airline_symbols.linenr = '⭡'
 
+	" don't warn about spaces after tabs when using this comment style:
+	" 
+	" /*
+	"  * <- space before the *
+	"  */
+	let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
 " }}}
+
+
+	let g:airline#extensions#csv#enabled = 1
+	let g:airline#extensions#csv#column_display = 'Number'
+	let g:airline#extensions#csv#column_display = 'Name'
 
 " Syntastic.vim {{{
 
