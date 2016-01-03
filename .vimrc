@@ -169,7 +169,7 @@ set synmaxcol=176
 
 if has("gui_running")
 	set background=dark
-	colorscheme solarized " zenburn
+	silent! colorscheme solarized " zenburn
 endif
 
 " }}}
