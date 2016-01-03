@@ -1,6 +1,7 @@
 session/*
 backup/*
 bundle/*
+plugged/*
 undodir/*
 swp/*
 .VimballRecord

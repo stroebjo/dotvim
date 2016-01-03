@@ -8,52 +8,56 @@
 "
 
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible " be iMproved
 
-let mapleader=","
+" Load plugins {{{
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+Plug 'bling/vim-airline'
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plug 'chriskempson/base16-vim'
 
-" My Bundles here:
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/syntastic'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color'
+Plug 'mattn/emmet-vim'
+Plug 'myusuf3/numbers.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'altercation/vim-colors-solarized'
+Plug 'mileszs/ack.vim'
+Plug 'gregsexton/MatchTag'
 
-Plugin 'bling/vim-airline'
+Plug 'Shougo/neocomplete.vim'
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
 
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'ap/vim-css-color'
-Bundle 'mattn/emmet-vim'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'mileszs/ack.vim'
-Bundle 'gregsexton/MatchTag'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'captbaritone/better-indent-support-for-php-with-html'
+Plug 'joonty/vdebug'
 
-Bundle 'Shougo/neocomplete.vim'
-"Bundle 'Shougo/neosnippet'
-"Bundle 'Shougo/neosnippet-snippets'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
-Bundle 'editorconfig/editorconfig-vim'
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'captbaritone/better-indent-support-for-php-with-html'
 
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plug 'mbbill/undotree'
 
-Bundle 'mbbill/undotree'
+Plug 'junegunn/goyo.vim'
 
-Bundle 'junegunn/goyo.vim'
+Plug 'mhinz/vim-startify'
 
-Bundle 'mhinz/vim-startify'
+Plug 'jiangmiao/auto-pairs'
 
-Bundle 'jiangmiao/auto-pairs'
+
+" Add plugins to &runtimepath
+call plug#end()
+" }}}
+
 
 filetype plugin on
+
 
 
 " GUI {{{
