@@ -298,7 +298,7 @@ let g:ctrlp_user_command = {
 	let g:airline_symbols.linenr = '⭡'
 
 	" don't warn about spaces after tabs when using this comment style:
-	" 
+	"
 	" /*
 	"  * <- space before the *
 	"  */
