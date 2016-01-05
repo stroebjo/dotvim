@@ -8,6 +8,11 @@
 "
 
 
+" The presence of a ~/.[g]vimrc allready disables compatible mode.
+" Nevertheless, a systemwwide .vimrc wouldn't, calling vim with -C flag 
+" would set compatible, but `set nocompatible` disables ist again.
+" > "better safe than sorry"
+"
 set nocompatible " be iMproved
 
 " Load plugins {{{
