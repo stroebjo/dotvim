@@ -20,7 +20,8 @@ let mapleader=","
 " Load plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline' " improved status line
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'chriskempson/base16-vim'
 
