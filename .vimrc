@@ -23,40 +23,38 @@ call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline' " improved status line
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'chriskempson/base16-vim'
-
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/syntastic'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim'
-Plug 'myusuf3/numbers.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'altercation/vim-colors-solarized'
-Plug 'mileszs/ack.vim'
-Plug 'gregsexton/MatchTag'
+Plug 'mhinz/vim-startify'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'kien/ctrlp.vim' " file searching
+Plug 'scrooloose/syntastic' " syntax validation on save
+Plug 'tpope/vim-fugitive' " git integrataion, :GBlame
 
 Plug 'Shougo/neocomplete.vim'
 "Plug 'Shougo/neosnippet'
 "Plug 'Shougo/neosnippet-snippets'
 
-Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'
+
+Plug 'mattn/emmet-vim' " zen coding (HTML)
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ap/vim-css-color' " highlight color defintions in respective color
+Plug 'myusuf3/numbers.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'gregsexton/MatchTag' " highlight matching HTML tags
+
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'joonty/vdebug'
 
-Plug 'godlygeek/tabular'
+
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
 
 Plug 'mbbill/undotree'
-
 Plug 'junegunn/goyo.vim'
-
-Plug 'mhinz/vim-startify'
-
-Plug 'jiangmiao/auto-pairs'
 
 
 " Add plugins to &runtimepath
