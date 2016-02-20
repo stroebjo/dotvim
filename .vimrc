@@ -15,6 +15,8 @@
 "
 set nocompatible " be iMproved
 
+let mapleader=","
+
 " Load plugins {{{
 call plug#begin('~/.vim/plugged')
 
