@@ -394,12 +394,12 @@ let g:mustache_abbreviations = 1
 	let g:startify_bookmarks = [ '~/.vimrc' ]
 
     let g:startify_list_order = [
-            \ ['   My most recently', '   used files'],
-            \ 'files',
             \ ['   These are my sessions:'],
             \ 'sessions',
             \ ['   These are my bookmarks:'],
             \ 'bookmarks',
+            \ ['   My most recently', '   used files'],
+            \ 'files',
             \ ]
 
     function! s:filter_header(lines) abort
