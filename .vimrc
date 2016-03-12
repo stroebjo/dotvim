@@ -25,7 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'kien/ctrlp.vim' " file searching
+Plug 'ctrlpvim/ctrlp.vim' " file searching
 Plug 'scrooloose/syntastic' " syntax validation on save
 Plug 'tpope/vim-fugitive' " git integrataion, :GBlame
 
@@ -271,7 +271,6 @@ augroup END
 
 
 " CtrlP.vim {{{
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
