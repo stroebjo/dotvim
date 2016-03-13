@@ -52,6 +52,7 @@ Plug 'joonty/vdebug'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 
 Plug 'mbbill/undotree'
 Plug 'junegunn/goyo.vim'
@@ -348,6 +349,14 @@ augroup neocomplete_config
 	" <TAB>: completion.
 	inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
+
+	
+	if !exists('g:neocomplete#sources#omni#input_patterns')
+		let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+
+	let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+	
 	" Enable omni completion.
 	autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
