@@ -156,6 +156,8 @@ vnoremap <S-Tab> <gv
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*
+set wildignore+=*/wp-admin/*,*/wp-includes/*,*/wp-content/plugins/*
+
 
 set hlsearch   " highlight matches, there is no easy way to disable highlighting again
 set incsearch  " search as characters are entered
