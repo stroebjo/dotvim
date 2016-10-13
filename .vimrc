@@ -26,7 +26,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim' " file searching
-Plug 'scrooloose/syntastic' " syntax validation on save
+
+Plug 'scrooloose/syntastic'  " syntax validation on save
+Plug 'maralla/validator.vim' " async validation on save
+" I kept both for now, since validator.vim has not support for stylelint yet
+
 Plug 'tpope/vim-fugitive' " git integrataion, :GBlame
 
 Plug 'Shougo/neocomplete.vim'
@@ -321,18 +325,35 @@ let g:ctrlp_user_command = {
 
 " Syntastic.vim {{{
 
-	" Only check for syntax errors manually. Expect for Ruby and PHP
-	"let g:syntastic_mode_map = { 'mode': 'passive',
-	"	\ 'active_filetypes': [],
-	"   \ 'passive_filetypes': [] }
+	" Only check for syntax errors manually (-> use validator.vim). Except for Scss
+	let g:syntastic_mode_map = {
+		\ "mode": "passive",
+		\ "active_filetypes": ["scss"],
+		\ "passive_filetypes": [] }
 
-	let g:syntastic_scss_checkers = ['scss_lint']
+	let g:syntastic_scss_checkers = ['stylelint']
+
 	let g:syntastic_error_symbol = '✗'
 	let g:syntastic_warning_symbol = '⚠'
 	let g:syntastic_style_error_symbol = 'S⚠'
 	let g:syntastic_style_warning_symbol = 'S⚠'
 
 " }}}
+
+" validator.cim {{{
+
+	let g:validator_scss_checkers = ['stylelint']
+
+	let g:validator_scss_stylelint_args = ''
+	let g:validator_scss_stylelint_binary = '/usr/local/bin/stylelint'
+
+	" For example
+	"let g:validator_python_flake8_args = '--max-line-length=120'
+	"let g:validator_python_flake8_binary = '/Users/maralla/.dotfiles/virtualenvs/py27/bin/flake8'
+
+
+" }}}
+
 
 " Necomplete.vim {{{
 augroup neocomplete_config
