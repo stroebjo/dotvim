@@ -25,7 +25,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'ctrlpvim/ctrlp.vim' " file searching
+Plug 'ctrlpvim/ctrlp.vim' " file name searching
+Plug 'mileszs/ack.vim'    " file content searching
 
 Plug 'scrooloose/syntastic'  " syntax validation on save
 Plug 'maralla/validator.vim' " async validation on save
@@ -289,6 +290,27 @@ let g:ctrlp_user_command = {
 	\ },
     \ 'fallback': 'find %s -type f'
 \ }
+
+" }}}
+
+" ack.vim {{{
+
+	if executable('ag')
+	  let g:ackprg = 'ag --vimgrep'
+	endif
+
+
+	" Run ack.vim from the project root (./.git/)
+	" http://blog.bugreplay.com/post/149712686514/how-i-learned-to-stop-worrying-and-love-vim
+	function! Rack(args)
+		let l:gitDir = system("git rev-parse --show-toplevel")
+		if l:gitDir =~ "Not a git repository"
+			execute 'Ack ' . a:args
+			return
+		endif
+		execute 'Ack! ' . a:args . ' ' . l:gitDir
+	endfunction
+	command! -bang -nargs=* -complete=file Rack call Rack(<q-args>)
 
 " }}}
 
