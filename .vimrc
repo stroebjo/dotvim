@@ -9,7 +9,7 @@
 
 
 " The presence of a ~/.[g]vimrc allready disables compatible mode.
-" Nevertheless, a systemwwide .vimrc wouldn't, calling vim with -C flag 
+" Nevertheless, a systemwwide .vimrc wouldn't, calling vim with -C flag
 " would set compatible, but `set nocompatible` disables ist again.
 " > "better safe than sorry"
 "
@@ -32,7 +32,8 @@ Plug 'scrooloose/syntastic'  " syntax validation on save
 Plug 'maralla/validator.vim' " async validation on save
 " I kept both for now, since validator.vim has not support for stylelint yet
 
-Plug 'tpope/vim-fugitive' " git integrataion, :GBlame
+Plug 'tpope/vim-fugitive'             " git integrataion, :GBlame
+Plug 'tommcdo/vim-fugitive-blame-ext' " shows the first line of the commit message
 
 Plug 'Shougo/neocomplete.vim'
 "Plug 'Shougo/neosnippet'
