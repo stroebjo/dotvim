@@ -117,7 +117,7 @@ filetype plugin on
 		endif
 
 		if has("gui_macvim")
-			set guifont=Menlo\ for\ Powerline:h12
+			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12
 		endif
 	endif
 
