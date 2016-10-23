@@ -20,35 +20,40 @@ let mapleader=","
 " Load plugins {{{
 call plug#begin('~/.vim/plugged')
 
-Plug 'bling/vim-airline' " improved status line
-Plug 'vim-airline/vim-airline-themes'
+" Interface
+" ---------
+Plug 'bling/vim-airline'                " improved status line
+Plug 'vim-airline/vim-airline-themes'   " …and a theme for it.
+Plug 'mhinz/vim-startify'               " Startscreen with current projects
+Plug 'ryanoasis/vim-devicons'           " pretty icons for filetypes
+Plug 'myusuf3/numbers.vim'              " relative line numbers
+Plug 'altercation/vim-colors-solarized' " color scheme
 
-Plug 'mhinz/vim-startify'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'ctrlpvim/ctrlp.vim' " file name searching
-Plug 'mileszs/ack.vim'    " file content searching
+Plug 'mileszs/ack.vim'    " file content searching (works also with ag)
 
-Plug 'scrooloose/syntastic'  " syntax validation on save
-Plug 'maralla/validator.vim' " async validation on save
+" Confguration + Features
+" -----------------------
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/syntastic'           " syntax validation on save
+Plug 'maralla/validator.vim'          " async validation on save
 " I kept both for now, since validator.vim has not support for stylelint yet
 
 Plug 'tpope/vim-fugitive'             " git integrataion, :GBlame
 Plug 'tommcdo/vim-fugitive-blame-ext' " shows the first line of the commit message
 
-Plug 'Shougo/neocomplete.vim'
-"Plug 'Shougo/neosnippet'
-"Plug 'Shougo/neosnippet-snippets'
+Plug 'jiangmiao/auto-pairs'           " Close opened parenthesis, etc.
+Plug 'godlygeek/tabular'              " easy indention
+Plug 'junegunn/vim-easy-align'
 
-Plug 'jiangmiao/auto-pairs'
-Plug 'godlygeek/tabular'
+
+
 
 Plug 'mattn/emmet-vim' " zen coding (HTML)
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'ap/vim-css-color' " highlight color defintions in respective color
-Plug 'myusuf3/numbers.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'gregsexton/MatchTag' " highlight matching HTML tags
+Plug 'ap/vim-css-color' " highlight color values in actual color
+Plug 'gregsexton/MatchTag', {'for': ['php', 'html', 'xml']} " highlight matching HTML/XML tags
 
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'captbaritone/better-indent-support-for-php-with-html'
@@ -56,12 +61,28 @@ Plug 'joonty/vdebug'
 
 
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'chrisbra/csv.vim', { 'for': 'csv' } " richer CSV handling
 
-Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+Plug 'vim-scripts/taglist.vim'
 
 Plug 'mbbill/undotree'
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim' " Markdown optimized writing
+
+
+" Backlog of Various autocomplete experiments…
+" --------------------------------------------
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+"Plug 'Shougo/neocomplete.vim'
+
+"Plug 'Shougo/neosnippet'
+"Plug 'Shougo/neosnippet-snippets'
+
+"Plug 'Shougo/vimproc'
+"Plug 'Shougo/unite.vim'
+"Plug 'm2mdas/phpcomplete-extended' , {'for': 'php'} " has dependecies
+
+"Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+
 
 
 " Add plugins to &runtimepath
