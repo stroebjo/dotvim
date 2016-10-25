@@ -372,7 +372,7 @@ let g:ctrlp_user_command = {
 	" Only check for syntax errors manually (-> use validator.vim). Except for Scss
 	let g:syntastic_mode_map = {
 		\ "mode": "passive",
-		\ "active_filetypes": ["scss"],
+		\ "active_filetypes": ["scss", "xml"],
 		\ "passive_filetypes": [] }
 
 	let g:syntastic_scss_checkers = ['stylelint']
