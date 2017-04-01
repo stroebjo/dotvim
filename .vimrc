@@ -363,12 +363,13 @@ let g:ctrlp_user_command = {
 	"  */
 	let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
-" }}}
-
-
 	let g:airline#extensions#csv#enabled = 1
 	let g:airline#extensions#csv#column_display = 'Number'
 	let g:airline#extensions#csv#column_display = 'Name'
+
+" }}}
+
+
 
 " Syntastic.vim {{{
 
