@@ -48,15 +48,17 @@ Plug 'godlygeek/tabular'              " easy indention
 Plug 'junegunn/vim-easy-align'
 
 
-
-
+" Filetype enhancements, features
+" -------------------------------
 Plug 'mattn/emmet-vim' " zen coding (HTML)
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ap/vim-css-color' " highlight color values in actual color
 Plug 'gregsexton/MatchTag', {'for': ['php', 'html', 'xml']} " highlight matching HTML/XML tags
-
+Plug 'posva/vim-vue', {'for': ['vue']} " Syntax Highlight for Vue.js components
+Plug 'jwalton512/vim-blade' " Syntax highlighting for Blade templates
 Plug 'mustache/vim-mustache-handlebars'
+
 Plug 'captbaritone/better-indent-support-for-php-with-html'
 Plug 'joonty/vdebug'
 
