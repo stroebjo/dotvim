@@ -26,13 +26,16 @@ Plug 'bling/vim-airline'                " improved status line
 Plug 'vim-airline/vim-airline-themes'   " …and a theme for it.
 Plug 'mhinz/vim-startify'               " Startscreen with current projects
 Plug 'myusuf3/numbers.vim'              " relative line numbers
-Plug 'altercation/vim-colors-solarized' " color scheme
 
 Plug 'ctrlpvim/ctrlp.vim' " file name searching
 Plug 'mileszs/ack.vim'    " file content searching (works also with ag)
 
 " load devicons AFTER CtrlP, Airline so those have icons
 Plug 'ryanoasis/vim-devicons'           " pretty icons for filetypes
+
+" Themes & colors
+" ---------------
+Plug 'altercation/vim-colors-solarized' " color scheme
 
 
 " Confguration + Features
