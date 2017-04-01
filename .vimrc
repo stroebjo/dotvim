@@ -38,9 +38,7 @@ Plug 'ryanoasis/vim-devicons'           " pretty icons for filetypes
 " Confguration + Features
 " -----------------------
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/syntastic'           " syntax validation on save
-Plug 'maralla/validator.vim'          " async validation on save
-" I kept both for now, since validator.vim has not support for stylelint yet
+Plug 'w0rp/ale' " Asynchronous Lint Engine, syntastic isn't async. maralla/validator.vim isn't that well supported
 
 Plug 'tpope/vim-fugitive'             " git integrataion, :GBlame
 Plug 'tommcdo/vim-fugitive-blame-ext' " shows the first line of the commit message
@@ -369,37 +367,25 @@ let g:ctrlp_user_command = {
 
 " }}}
 
+" ALE (Asynchronous Lint Engine) {{{
 
 
-" Syntastic.vim {{{
+	let g:ale_sign_error = '✗'
+	let g:ale_sign_warning = '⚠'
 
-	" Only check for syntax errors manually (-> use validator.vim). Except for Scss
-	let g:syntastic_mode_map = {
-		\ "mode": "passive",
-		\ "active_filetypes": ["scss", "xml"],
-		\ "passive_filetypes": [] }
-
-	let g:syntastic_scss_checkers = ['stylelint']
-
-	let g:syntastic_error_symbol = '✗'
-	let g:syntastic_warning_symbol = '⚠'
-	let g:syntastic_style_error_symbol = 'S⚠'
-	let g:syntastic_style_warning_symbol = 'S⚠'
+	" Display Ale status in Airline
+	let g:ale_statusline_format = ['✗ %d', '⚠ %d', '⬥ ok']
+	call airline#parts#define_function('ALE', 'ALEGetStatusLine')
+	call airline#parts#define_condition('ALE', 'exists("*ALEGetStatusLine")')
+	let g:airline_section_error = airline#section#create_right(['ALE'])
 
 " }}}
 
-" validator.cim {{{
-
-	let g:validator_scss_checkers = ['stylelint']
-
-	let g:validator_scss_stylelint_args = ''
-	let g:validator_scss_stylelint_binary = '/usr/local/bin/stylelint'
-
-	" For example
-	"let g:validator_python_flake8_args = '--max-line-length=120'
-	"let g:validator_python_flake8_binary = '/Users/maralla/.dotfiles/virtualenvs/py27/bin/flake8'
-
-
+" Necomplete.vim {{{
+augroup deoplete
+	" Use deoplete.
+	let g:deoplete#enable_at_startup = 1
+augroup END
 " }}}
 
 
